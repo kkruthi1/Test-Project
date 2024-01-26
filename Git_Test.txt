@@ -1,3 +1,5 @@
+#Kruthi Python Test file
+
 import csv
 reader = csv.reader(open(r"abx.csv"),delimiter=';')
 filtered = filter(lambda p: 'Central' == p[2], reader)
