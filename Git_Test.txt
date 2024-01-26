@@ -1,0 +1,30 @@
+import csv
+reader = csv.reader(open(r"abx.csv"),delimiter=';')
+filtered = filter(lambda p: 'Central' == p[2], reader)
+csv.writer(open(r"abx.csv",'w'),delimiter=' ').writerows(filtered)
+
+
+import pandas as pd
+
+data = pd.read_csv('put in your csv filename here')
+# Filter the data accordingly.
+data = data[data['Games Owned'] > 20]
+data = data[data['OS'] == 'Mac']
+
+
+
+# create df
+x = np.linspace(0, 2 * np.pi, 400)
+df = pd.DataFrame({'x': x, 'y': np.sin(x ** 2)})
+df.index.names = ['obs']
+df.columns.names = ['vars']
+
+idx = np.array(df.index.tolist(), dtype='float')  # make an array of x-values
+
+# call regplot on each axes
+fig, (ax1, ax2) = plt.subplots(ncols=2, sharey=True)
+sns.regplot(x=idx, y=df['x'], ax=ax1)
+sns.regplot(x=idx, y=df['y'], ax=ax2)
+
+
+
